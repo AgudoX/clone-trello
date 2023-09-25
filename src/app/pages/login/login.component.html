@@ -1,0 +1,70 @@
+<div class="w-screen h-screen bg-gray-50 sm:bg-gray-50 relative">
+  <div class="absolute w-full h-full hidden md:block">
+    <img
+      loading="lazy"
+      class="absolute w-80 lg:w-90 left-0 bottom-0"
+      src="/assets/img/bg-right.svg"
+      alt=" ng left"
+    />
+
+    <img
+      loading="lazy"
+      class="absolute w-60 lg:w-60 right-0 bottom-0"
+      src="/assets/img/bg-left.svg"
+      alt=" ng left"
+    />
+  </div>
+  <div class="relative w-full sm:w-7/12 md:w-6-12 lg:w-4/12 m-auto">
+    <header class="py-10 flex justify-center">
+      <img
+        loading="lazy"
+        class="w-56 sm:"
+        src="/assets/img/logo-gradient-blue-trello.svg"
+        alt="logo"
+      />
+    </header>
+    <div class="bg-white rounded shadow-lg py-4 px-6 mx-2">
+      <div class="mb-4">
+        <h1 class="text-center font-semibold pt-4 pb-8">Log In to Trello</h1>
+        <form novalidate class="space-y-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Enter email"
+              class="w-full rounded bg-gray-100 border-2 border-gray-300"
+            />
+          </div>
+          <div class="relative">
+            <input
+              type="password"
+              placeholder="Enter password"
+              class="w-full rounded bg-gray-100 border-gray-300 border-2"
+            />
+          </div>
+          <div>
+            <app-btn [color]="'success'">Log In</app-btn>
+          </div>
+        </form>
+      </div>
+      <hr class="bg-gray-200 w-full" />
+
+      <div
+        class="text-base text-gray-700 pt-4 flex justify-center align-middle"
+      >
+        <a routerLink="/forgot-password" class="text-blue-600 font-light"
+          >Cant't log in</a
+        >
+        <span class="text-[3px] pt-[2px] px-2"> ⚫ </span>
+        <a routerLink="/register" class="text-blue-600 font-light"
+          >Sign up for an account</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-12">
+    <img
+      src="/assets/img/horizontal-logo-gradient-neutral-atlassian.svg"
+      alt=""
+    />
+  </div>
+</div>
