@@ -1,0 +1,58 @@
+<nav class="bg-sky-700 border-gray-200 px-6 shadow-md">
+  <div class="flex flex-wrap justify-between items-center">
+    <div class="flex items-center">
+      <a routerLink="/">
+        <img
+          loading="lazy"
+          class="w-20 mr-8"
+          src="/assets/img/logo-gradient-white-trello.svg"
+          alt="logo"
+        />
+      </a>
+      <div class="flex items-center">
+        <ul class="flex items-center space-x-2 text-sm font-medium">
+          <li>
+            <a class="block py-3 px-4 text-white">Workspaces</a>
+          </li>
+          <li>
+            <a class="block py-3 px-4 text-white">Recent</a>
+          </li>
+          <li>
+            <app-btn typeBtn="button" [color]="'primary'">Create</app-btn>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <div class="space-x-2 flex">
+        <button class="text-white" type="button">
+          <fa-icon [icon]="faBell"></fa-icon>
+        </button>
+        <button class="text-white" type="button">
+          <fa-icon [icon]="faInfoCircle"></fa-icon>
+        </button>
+        <button
+          type="button"
+          class="flex rounded-full"
+          aria-expanded="false"
+          (click)="this.isOpen = !this.isOpen"
+          cdkOverlayOrigin
+          #menuOverlay="cdkOverlayOrigin"
+        >
+          <img
+            class="w-8 h-8 rounded-full"
+            src="/assets/img/profile.jpg"
+            alt="user photo"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="menuOverlay"
+  [cdkConnectedOverlayOpen]="this.isOpen"
+>
+  <app-profile-overlay (isOpen)="onClick($event)"></app-profile-overlay>
+</ng-template>

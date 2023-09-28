@@ -1,7 +1,8 @@
 <button
-  type="submit"
-  class="text-white text-lg py-3 w-full font-medium rounded"
-  [ngClass]="this.className"
+  [type]="this.type"
+  class="flex gap-2 text-white text-lg p-2 m-1 w-full font-medium rounded"
+  [ngClass]="colors"
+  [ngStyle]="this.style"
 >
   <ng-content></ng-content>
 </button>

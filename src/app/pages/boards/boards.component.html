@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<div class="pt-14 pl-12 flex space-x-2">
+  <aside>
+    <ul class="w-[13rem] mb-8">
+      <ng-container *ngFor="let sidebarPage of this.sidebarPages">
+        <app-sidebar-btn
+          [icon]="sidebarPage.icon"
+          [sidebarPage]="sidebarPage.sidebarPage"
+        ></app-sidebar-btn>
+      </ng-container>
+    </ul>
+    <cdk-accordion>
+      <cdk-accordion-item #accordionMenu="cdkAccordionItem">
+        <button
+          class="w-full py-1 px-2 flex justify-between items-center"
+          type="button"
+          (click)="accordionMenu.toggle()"
+        >
+          My Workspace
+          <fa-icon
+            [icon]="accordionMenu.expanded ? faAngleUp : faAngleDown"
+          ></fa-icon>
+        </button>
+        <div
+          [ngClass]="{
+            hidden: !accordionMenu.expanded,
+            block: accordionMenu.expanded
+          }"
+        >
+          <ul class="ml-2 flex flex-col text-sm text-gray-700">
+            <li>
+              <a class="block py-1 px-3"
+                ><fa-icon [icon]="faTrello"></fa-icon> Boards</a
+              >
+            </li>
+            <li>
+              <a class="block py-1 px-3"
+                ><fa-icon [icon]="faHeart"></fa-icon> Highlights</a
+              >
+            </li>
+            <li>
+              <a class="block py-1 px-3"
+                ><fa-icon [icon]="faBorderAll"></fa-icon> Views</a
+              >
+            </li>
+            <li>
+              <a class="block py-1 px-3"
+                ><fa-icon [icon]="faUsers"></fa-icon> Members</a
+              >
+            </li>
+            <li>
+              <a class="block py-1 px-3"
+                ><fa-icon [icon]="faGear"></fa-icon> Settings</a
+              >
+            </li>
+          </ul>
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+
+    <cdk-accordion>
+      <cdk-accordion-item
+        #accordionItem="cdkAccordionItem"
+        *ngFor="let item of items"
+      >
+        <button
+          class="w-full text-left"
+          type="button"
+          (click)="accordionItem.toggle()"
+        >
+          {{ item.label }}
+        </button>
+        <div [style.display]="accordionItem.expanded ? '' : 'none'">
+          <ul>
+            <li *ngFor="let subItem of item.items">{{ subItem.label }}</li>
+          </ul>
+        </div>
+      </cdk-accordion-item>
+    </cdk-accordion>
+  </aside>
+  <main>
+    <div class="flex space-x-2 mb-4">
+      <fa-icon [icon]="faClock"></fa-icon>
+      <h3 class="font-bold text-gray-800">Recently viewed</h3>
+    </div>
+    <div class="flex flex-wrap gap-4 mr-2">
+      <app-board-card [bgColor]="'bg-green-700'" />
+      <app-board-card [bgColor]="'bg-red-700'" />
+      <app-board-card [bgColor]="'bg-green-700'" />
+      <app-board-card [bgColor]="'bg-green-700'" />
+      <app-board-card [bgColor]="'bg-green-700'" />
+    </div>
+  </main>
+</div>
